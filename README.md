@@ -1,54 +1,66 @@
-# Geomagnetic Depth Sounding 3D Modeling and Inversion Program
+# Geomagnetic Depth Sounding 3D Modeling and Inversion Toolkit
 
-## Introduction
+## Overview
 
-This program is a set of F90 codes for Geomagnetic Depth Sounding 3D Modeling and Inversion, capable of performing three-dimensional forward and inverse calculations for geomagnetic depth sounding.
+This toolkit comprises a suite of Fortran 90 (F90) codes designed for 3D Modeling and Inversion in Geomagnetic Depth Sounding. It enables users to conduct comprehensive three-dimensional forward and inverse geomagnetic depth sounding calculations with high efficiency and accuracy.
 
-## Preparation
+## Getting Started
 
-Before using the code, you need to install the Intel® oneAPI Base Toolkit and the Intel® HPC Toolkit.
+### Prerequisites
 
-## File Structure
+To utilize this toolkit, users must first install the Intel® oneAPI Base Toolkit and the Intel® HPC Toolkit to ensure compatibility and performance. Additionally, specific libraries are required:
 
-The program mainly contains three folders: `lib`, `src`, and `vs`.
+- **TetGen**: Necessary for mesh generation. Available for download and compilation at [TetGen Official Website](https://wias-berlin.de/software/tetgen/).
+- **MUMPS**: A crucial solver library. Download and compile from [MUMPS Official Website](https://mumps-solver.org/index.php?page=home).
+- **Bisect**: This library is included within the `lib` directory of the toolkit.
 
-- `lib`: Contains the libraries required for the program to run, including the MUMPS solver, bisect, and TetGen libraries.
-- `src`: The source code folder, containing subfolders such as Common, Data, Forward, Inverse, Main, Model, Primary, Solver, etc., with functionalities as indicated by their names.
-- `vs`: Contains the Intel Fortran project file and examples.
+### Structure of the Toolkit
 
-### Example Files
+The toolkit is organized into three primary directories: `lib`, `src`, and `vs`, each serving a distinct purpose:
 
-- `*.ele` & `*.node`: The mesh files of the model, containing tetrahedral element information and node information, respectively, in TetGen format.
-- `*.attribute`: Contains the relevant initial electrical information of the different regions after the model is partitioned.
-- `*.ctrl`: Some control parameters of the algorithm need to be specified.
-- `*.data`: For forward calculations, the data format needs to be specified; for inversion, observational data is required.
-- `*.source`: Stores information about the source of the electromagnetic field.
-- `task.dat`: Task information needs to be specified in advance.
--`newsedmap.txt`: It is the 180 x 360 surface conductance data from Everett, M.E., S. Constable, and C.G. Constable, 2003: Effects of near-surface conductance on global satellite induction responses, Geophys. J. Int., 153, 277–286.
+- `lib`: This directory houses essential libraries that the toolkit relies on, including the MUMPS solver, bisect, and TetGen libraries, among others.
+- `src`: Here, you'll find the source code, organized into subdirectories by functionality—Common, Data, Forward, Inverse, Main, Model, Primary, Solver, etc.
+- `vs`: This directory contains the Intel Fortran project file along with example files to help users get started.
 
-### Output Files
+#### Key Example Files
 
-- `*.o.data`: The output results of the forward calculations.
-- `*.res`, `BFGS_rms_record.txt`, `*.vtk`: Main inversion results and related parameter files.
+- Mesh Files (`*.ele`, `*.node`): Define the tetrahedral elements and nodes of the model in TetGen format.
+- Model Attributes (`*.attribute`): Detail the initial electrical properties of the model's regions.
+- Control Parameters (`*.ctrl`): Specify algorithm control parameters.
+- Data Files (`*.data`): Outline data formats for forward calculations and provide observational data for inversion.
+- Source Information (`*.source`): Describe the electromagnetic field source.
+- Task Specification (`task.dat`): Predefine task information.
+- Surface Conductance Data (`newsedmap.txt`): Offer surface conductance data essential for accurate modeling. This data is derived from the study by Everett, M.E., S. Constable, and C.G. Constable, 2003, titled "Effects of near-surface conductance on global satellite induction responses," published in Geophysical Journal International, volume 153, pages 277–286.
 
-## Installation Guide
+#### Output Files
 
-Ensure that the Intel® oneAPI Base Toolkit and Intel® HPC Toolkit are installed. For detailed installation steps, please refer to the official documentation.
+- Forward Calculation Results (`*.o.data`): Output from forward calculations.
+- Inversion Results (`*.res`, `BFGS_rms_record.txt`, `*.vtk`): Key files detailing inversion outcomes and parameter records.
 
-## Usage
+## Installation
 
-For detailed usage instructions and parameter configurations, please refer to the examples and `.ctrl` files in the `vs` folder.
+Follow the installation instructions for the Intel® oneAPI Base Toolkit and Intel® HPC Toolkit closely. For TetGen and MUMPS libraries, refer to their respective official websites for download and compilation instructions. The Bisect library is already included in the `lib` directory.
 
-## Contributions
+## How to Use
 
-Contributions via Pull Requests or by emailing maxp20@mails.jlu.edu.cn with code contributions or issues are welcome.
+Refer to the example files and `.ctrl` documents in the `vs` folder for detailed instructions on setting up and running your models.
 
-## Author
+## Contributing
+
+We encourage contributions! Please submit Pull Requests or report issues via email to maxp20@mails.jlu.edu.cn.
+
+## About the Author
 
 - **Name**: Xinpeng Ma
-- **Affiliation**: Jilin University
-- **Email**: maxp20@mails.jlu.edu.cn
+- **Institution**: Jilin University
+- **Contact**: maxp20@mails.jlu.edu.cn
 
 ## License
 
-This code is distributed under the GPL License. For more details, please see the LICENSE file.
+This toolkit is released under the GPL License. For full license details, please consult the LICENSE file.
+
+---
+
+### Additional Information
+
+This toolkit represents a significant advancement in the field of geomagnetic research, offering researchers and practitioners a powerful tool for exploring the Earth's subsurface electrical properties. Its development and ongoing improvement are a testament to the collaborative effort of the geomagnetic research community. We welcome feedback, suggestions, and contributions to further enhance its capabilities and usability.
